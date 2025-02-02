@@ -16,7 +16,7 @@ else:
     weekend_cost_A = weekend * 0.2 
     total_A = day_cost_A + evening_cost_A + weekend_cost_A
     
-# Calculating for Plan B
+# Calculating for Plan B    
 if daytime > 250:
     cost_minutes_B = daytime - 250 
     day_cost_B = cost_minutes_B * 0.45 
