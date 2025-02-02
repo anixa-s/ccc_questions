@@ -11,17 +11,23 @@ if daytime > 100:
     weekend_cost_A = weekend * 0.2 
     total_A = day_cost_A + evening_cost_A + weekend_cost_A
 else:
-    total_A = 0 
+    day_cost_A = 0 
+    evening_cost_A = evening * 0.15 
+    weekend_cost_A = weekend * 0.2 
+    total_A = day_cost_A + evening_cost_A + weekend_cost_A
     
 # Calculating for Plan B
 if daytime > 250:
     cost_minutes_B = daytime - 250 
     day_cost_B = cost_minutes_B * 0.45 
-    evening_cost_B = evening * 0.35 
+    evening_cost_B = evening * 0.35
     weekend_cost_B = weekend * 0.25 
     total_B = day_cost_B + evening_cost_B + weekend_cost_B
 else:
-    total_B = 0 
+    day_cost_B = 0 
+    evening_cost_B = evening * 0.35
+    weekend_cost_B = weekend * 0.25 
+    total_B = day_cost_B + evening_cost_B + weekend_cost_B
     
 # Output 
 print(f"Plan A costs {round(total_A, 2)}")
