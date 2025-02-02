@@ -12,19 +12,15 @@ The program will print out one of two statements: Is an anagram. or Is not an an
 """
 
 # Taking user inputs 
-first = input()
-second = input()
+first = input().strip()
+second = input().strip()
 
 # Listfying to check each letter in the string 
-first = list(first)
-second = list(second) 
+first = sorted(first.replace(" ", ""))
+second = sorted(second.replace(" ", "")) 
 
 # Checking if the two words are anagrams 
-index_counter = 0 
-for element in first:
-    if element in second:
-        index_counter += 1 
-if index_counter == len(first):
+if first == second:
     print("Is an anagram.")
-else: 
+else:
     print("Is not an anagram.")
