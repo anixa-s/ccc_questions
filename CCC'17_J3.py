@@ -25,27 +25,16 @@ Output Y if it is possible to move from the starting coordinate to the destinati
 t units of electrical charge. Otherwise output N.
 """
 
-# Taking inputs 
-starting = input()
-destination = input() 
-t = int(input())
+# Taking inputs
+a, b = map(int, input().split())  # Starting coordinates
+c, d = map(int, input().split())  # Destination coordinates
+t = int(input())  # Battery charge
 
-points_1 = starting.split()
-points_2 = destination.split() 
+# Calculate distance 
+distance = abs(c - a) + abs(d - b)
 
-# Work with x-coordinate movement first, THEN y-coordinate movement 
-if points_1[0] != points_2[0]: 
-    movement_x = abs(int(points_2[0]) - int(points_1[0]))
-movement_x = 0 
-
-if points_1[1] != points_2[1]: 
-    movement_y = abs(int(points_2[1]) - int(points_1[1]))
-movement_y = 0 
-
-total_movement = movement_x + movement_y 
-
-# Checking if it is possible to move from starting to destination exactly t times 
-if t == total_movement: 
+# Check if t can cover the exact distance or overlap a few times 
+if t >= distance and (t - distance) % 2 == 0: 
     print("Y")
 else:
     print("N")
