@@ -48,5 +48,5 @@ city_list = ["Victoria", "Edmonton", "Winnipeg", "Toronto", "Halifax", "St. John
 
 # Output and formatting 
 print(f"{est_time} in Ottawa")
-for i in range(time_list):
+for i in range(len(time_list)):
     print(f"{time_list[i]} in {city_list[i]}")
