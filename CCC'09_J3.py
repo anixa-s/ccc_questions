@@ -36,27 +36,34 @@ and input will not contain any extra leading zeros.
 # Taking user input 
 est_time = int(input())
 
+# Function to adjust time in military format 
+def adjust_time(time):
+    hours, minutes = divmod(time, 100)  # Extract hours and minutes
+    if hours >= 24:  
+        hours -= 24  # Wrap around if past midnight
+    return hours * 100 + minutes  
+
 # Clock duration
-total = 2400 
+total = 2400  
 
 # Calculating time between different zones 
-pst_time = est_time - 300 
-mst_time = est_time - 200 
-cst_time = est_time - 100 
-ast_time = est_time + 100 
-nst_time = est_time + 130 
+pst_time = adjust_time(est_time - 300)  
+mst_time = adjust_time(est_time - 200)  
+cst_time = adjust_time(est_time - 100)  
+ast_time = adjust_time(est_time + 100)  
+nst_time = adjust_time(est_time + 130)  
 
 time_list = [pst_time, mst_time, cst_time, est_time, ast_time, nst_time]
 
-# Checking for weird results
+# Checking for negative values and adjusting them
 for i in range(len(time_list)):
     if time_list[i] < 0: 
-        time_list[i] += total  # Correctly updates the list
+        time_list[i] += total  # Wrap around midnight correctly
 
 # List of cities corresponding to time zones
 city_list = ["Victoria", "Edmonton", "Winnipeg", "Toronto", "Halifax", "St. John's"]
 
-# Output and formatting 
+# Output and formatting
 print(f"{est_time} in Ottawa")
 for i in range(len(time_list)):
     print(f"{time_list[i]} in {city_list[i]}")
