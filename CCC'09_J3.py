@@ -37,7 +37,6 @@ and input will not contain any extra leading zeros.
 est_time = int(input())
 
 # Clock duration
-midnight = 0 
 total = 2400 
 
 # Calculating time between different zones 
@@ -48,21 +47,16 @@ ast_time = est_time + 100
 nst_time = est_time + 130 
 
 time_list = [pst_time, mst_time, cst_time, est_time, ast_time, nst_time]
-final_time_list = [] 
 
 # Checking for weird results
-for element in time_list:
-    if element < 0: 
-        new_time = total + (element)
-        element = new_time 
-        final_time_list.append(element)
-    else:
-        final_time_list.append(element)
+for i in range(len(time_list)):
+    if time_list[i] < 0: 
+        time_list[i] += total  # Correctly updates the list
 
-# List of cities I am calculating time zones for 
+# List of cities corresponding to time zones
 city_list = ["Victoria", "Edmonton", "Winnipeg", "Toronto", "Halifax", "St. John's"]
 
 # Output and formatting 
 print(f"{est_time} in Ottawa")
-for i in range(len(final_time_list)):
-    print(f"{final_time_list[i]} in {city_list[i]}")
+for i in range(len(time_list)):
+    print(f"{time_list[i]} in {city_list[i]}")
