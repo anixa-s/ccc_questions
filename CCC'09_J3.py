@@ -33,3 +33,20 @@ listed above including Ottawa. You should assume that the input time will be val
 You should note that 2359 is one minute to midnight, midnight is 0, and 13 minutes after midnight is 13. You do not need to print leading zeros, 
 and input will not contain any extra leading zeros.
 """
+# Taking user input 
+est_time = int(input())
+
+# Calculating time between different zones 
+pst_time = est_time - 300 
+mst_time = est_time - 200 
+cst_time = est_time - 100 
+ast_time = est_time + 100 
+nst_time = est_time + 130 
+
+time_list = [pst_time, mst_time, cst_time, est_time, ast_time, nst_time]
+city_list = ["Victoria", "Edmonton", "Winnipeg", "Toronto", "Halifax", "St. John's"]
+
+# Output and formatting 
+print(f"{est_time} in Ottawa")
+for i in range(time_list):
+    print(f"{time_list[i]} in {city_list[i]}")
